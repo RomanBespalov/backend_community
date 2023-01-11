@@ -6,7 +6,7 @@ def index(request):
     posts = Post.objects.order_by('-pub_date')[:10]
     context = {
         'posts': posts,
-        'title':'Последние обновления на сайте',
+        'title': 'Последние обновления на сайте',
     }
     return render(request, 'posts/index.html', context)
 
