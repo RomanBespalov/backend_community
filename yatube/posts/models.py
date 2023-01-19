@@ -28,8 +28,7 @@ class Post(models.Model):
         Group,
         blank=True,
         null=True,
-        default='нет группы',
-        on_delete=models.SET_DEFAULT,
+        on_delete=models.SET_NULL,
         verbose_name='название группы',
         related_name='posts'
     )
