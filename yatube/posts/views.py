@@ -2,11 +2,11 @@ from django.shortcuts import render, get_object_or_404
 
 from .models import Post, Group
 
-n = 10  # Константа для количества постов на странице
+POSTS_ON_PAGE = 10
 
 
 def index(request):
-    posts = Post.objects.all()[:n]
+    posts = Post.objects.all()[:POSTS_ON_PAGE]
     context = {
         'posts': posts,
     }
@@ -15,7 +15,7 @@ def index(request):
 
 def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
-    posts = group.posts.select_related('group').all()[:n]
+    posts = group.posts.all()[:POSTS_ON_PAGE]
     context = {
         'group': group,
         'posts': posts,

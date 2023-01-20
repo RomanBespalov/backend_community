@@ -12,9 +12,9 @@
           <a href="{% url 'posts:group_list' post.group.slug %}" class="button">
             все записи группы: {{ post.group.title }}
           </a>
-          {% if not forloop.last %}
-            <hr class="major"/>
-          {% endif %}
+        {% endif %}  
+        {% if not forloop.last %}
+          <hr>
         {% endif %}
       </article>
     {% endfor %}
